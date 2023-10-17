@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  WifiNameUtil.swift
 //  
 //
 //  Created by Mooseok Bahng on 2023/08/20.

@@ -24,5 +24,9 @@ public struct LayoutResource {
     public static var sideMargin: CGFloat = 20
     public static var verticalSpacing: CGFloat = 20
     public static var horizontalSpacing: CGFloat = 20
+    public static var listCellThumbnailSize = CGSize(width: 60, height: 60)
+    public static var listCellTitleLines = 2
+    public static var listCellDescriptionLines = 2
+    public static var listCellVerticalInnterSpacing: CGFloat = 4
 }
 
