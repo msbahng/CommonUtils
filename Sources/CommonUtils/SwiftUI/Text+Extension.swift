@@ -17,8 +17,24 @@ struct ItemTitleModifier: ViewModifier {
     }
 }
 
+struct TagTextModifier: ViewModifier {
+    public func body(content: Content) -> some View {
+        content
+            .padding(.all, 5)
+            .font(.body)
+            .background(Color.gray)
+            .foregroundColor(Color.white)
+            .cornerRadius(12)
+    }
+}
+
+
 extension Text {
     public func itemTitle() -> some View {
         modifier(ItemTitleModifier())
+    }
+    
+    public func tagText() -> some View {
+        modifier(TagTextModifier())
     }
 }
