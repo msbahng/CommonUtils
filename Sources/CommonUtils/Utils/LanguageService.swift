@@ -38,7 +38,7 @@ public enum LanguageService: String, Codable, CaseIterable, Identifiable {
         recognizer.processString(string)
         
         guard let languageCode = recognizer.dominantLanguage?.rawValue else {
-            return Locale.current.languageCode ?? "none"
+            return Locale.current.identifier
         }
         
         return languageCode
