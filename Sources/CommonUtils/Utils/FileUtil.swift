@@ -15,7 +15,15 @@ public class FileUtil {
     }
     
     public static func getTempImageDirectory() -> URL? {
-        let directory = getDocumentsDirectory().appendingPathComponent("imageTemp", isDirectory: true)
+        Self.getFileDirectory(".imageTemp")
+    }
+    
+    public static func getfileCacheDirectory() -> URL? {
+        Self.getFileDirectory(".fileCache")
+    }
+    
+    public static func getFileDirectory(_ pathComponent: String) -> URL? {
+        let directory = getDocumentsDirectory().appendingPathComponent(pathComponent, isDirectory: true)
         
         if !FileManager.default.fileExists(atPath: directory.path) {
             do {
