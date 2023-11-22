@@ -17,6 +17,17 @@ struct ItemTitleModifier: ViewModifier {
     }
 }
 
+struct ListTitleModifier: ViewModifier {
+    public func body(content: Content) -> some View {
+        content
+            .font(.body)
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .padding(.leading, MS.Sizes.Layout.sideMargin)
+            .padding(.trailing, MS.Sizes.Layout.sideMargin)
+    }
+}
+
+
 struct TagTextModifier: ViewModifier {
     public func body(content: Content) -> some View {
         content
@@ -32,6 +43,10 @@ struct TagTextModifier: ViewModifier {
 extension Text {
     public func itemTitle() -> some View {
         modifier(ItemTitleModifier())
+    }
+    
+    public func listTitle() -> some View {
+        modifier(ListTitleModifier())
     }
     
     public func tagText() -> some View {
