@@ -6,8 +6,11 @@
 //
 
 import UIKit
+import Logger
 
 public class FileUtil {
+    
+    private static let cacheTime: TimeInterval = 10 * 60        // temporary
     
     public static func getDocumentsDirectory() -> URL {
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
@@ -20,6 +23,31 @@ public class FileUtil {
     
     public static func getfileCacheDirectory() -> URL? {
         Self.getFileDirectory(".fileCache")
+    }
+    
+    public static func checkCachedFiles() {
+    
+        guard let cacheDirectory = FileUtil.getfileCacheDirectory() else {
+            return
+        }
+        
+        do {
+            let files = try FileManager.default.contentsOfDirectory(atPath: cacheDirectory.path)
+            
+            try files.forEach {
+                let fileUrl = cacheDirectory.appendingPathComponent($0)
+                guard let createdDate = fileUrl.createdDate else {
+                    return
+                }
+                
+                if Date().timeIntervalSince(createdDate) > Self.cacheTime {
+                    Logger.printLog("delete old file : \($0)")
+                    try FileManager.default.removeItem(at: fileUrl)
+                }
+            }
+        } catch {
+            Logger.printLog("error : \(error.localizedDescription)")
+        }
     }
     
     public static func getFileDirectory(_ pathComponent: String) -> URL? {
@@ -44,7 +72,7 @@ public class FileUtil {
         do {
             try FileManager.default.removeItem(atPath: directory.path)
         } catch {
-            print("error : \(error.localizedDescription)")
+            Logger.printLog("error : \(error.localizedDescription)")
         }
     }
     
