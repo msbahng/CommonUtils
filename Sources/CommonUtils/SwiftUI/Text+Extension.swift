@@ -39,6 +39,17 @@ struct TagTextModifier: ViewModifier {
     }
 }
 
+struct MapAnnotationTextModifier: ViewModifier {
+    public func body(content: Content) -> some View {
+        content
+            .padding(.all, 5)
+            .font(.callout)
+            .background(Color.white)
+            .foregroundColor(Color.blue)
+            .cornerRadius(5)
+    }
+}
+
 
 extension Text {
     public func itemTitle() -> some View {
@@ -51,5 +62,9 @@ extension Text {
     
     public func tagText() -> some View {
         modifier(TagTextModifier())
+    }
+    
+    public func mapAnnotationText() -> some View {
+        modifier(MapAnnotationTextModifier())
     }
 }
