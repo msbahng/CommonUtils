@@ -14,8 +14,35 @@ struct ItemTitleModifier: ViewModifier {
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding(.leading, MS.Sizes.Layout.sideMargin)
             .padding(.trailing, MS.Sizes.Layout.sideMargin)
+            .padding(.top, MS.Sizes.Layout.verticalMargin)
+            .padding(.bottom, MS.Sizes.Layout.verticalMargin)
     }
 }
+
+struct HeadlineModifier: ViewModifier {
+    public func body(content: Content) -> some View {
+        content
+            .font(.headline)
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .padding(.leading, MS.Sizes.Layout.sideMargin)
+            .padding(.trailing, MS.Sizes.Layout.sideMargin)
+            .padding(.top, MS.Sizes.Layout.verticalMargin)
+            .padding(.bottom, MS.Sizes.Layout.verticalMargin)
+    }
+}
+
+struct SubHeadlineModifier: ViewModifier {
+    public func body(content: Content) -> some View {
+        content
+            .font(.subheadline)
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .padding(.leading, MS.Sizes.Layout.sideMargin)
+            .padding(.trailing, MS.Sizes.Layout.sideMargin)
+            .padding(.top, MS.Sizes.Layout.verticalMargin)
+            .padding(.bottom, MS.Sizes.Layout.verticalMargin)
+    }
+}
+
 
 struct ListTitleModifier: ViewModifier {
     public func body(content: Content) -> some View {
@@ -54,6 +81,14 @@ struct MapAnnotationTextModifier: ViewModifier {
 extension Text {
     public func itemTitle() -> some View {
         modifier(ItemTitleModifier())
+    }
+    
+    public func headline() -> some View {
+        modifier(HeadlineModifier())
+    }
+    
+    public func subHeadline() -> some View {
+        modifier(SubHeadlineModifier())
     }
     
     public func listTitle() -> some View {
