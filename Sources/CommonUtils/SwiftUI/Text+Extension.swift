@@ -43,7 +43,6 @@ struct SubHeadlineModifier: ViewModifier {
     }
 }
 
-
 struct ListTitleModifier: ViewModifier {
     public func body(content: Content) -> some View {
         content
@@ -51,6 +50,23 @@ struct ListTitleModifier: ViewModifier {
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding(.leading, MS.Sizes.Layout.sideMargin)
             .padding(.trailing, MS.Sizes.Layout.sideMargin)
+    }
+}
+
+struct ListCellHeaderModifier: ViewModifier {
+    public func body(content: Content) -> some View {
+        content
+            .font(.body)
+            .lineLimit(MS.Sizes.Layout.listCellTitleLines)
+    }
+}
+
+struct ListCellDescriptionModifier: ViewModifier {
+    public func body(content: Content) -> some View {
+        content
+            .font(.body)
+            .foregroundColor(Color.gray)
+            .lineLimit(MS.Sizes.Layout.listCellDescriptionLines)
     }
 }
 
@@ -93,6 +109,14 @@ extension Text {
     
     public func listTitle() -> some View {
         modifier(ListTitleModifier())
+    }
+    
+    public func listCellHeader() -> some View {
+        modifier(ListCellHeaderModifier())
+    }
+    
+    public func listCellDescription() -> some View {
+        modifier(ListCellDescriptionModifier())
     }
     
     public func tagText() -> some View {

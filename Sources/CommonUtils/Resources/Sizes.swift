@@ -30,5 +30,6 @@ public struct LayoutResource {
     public static var listCellDescriptionLines = 2
     public static var listCellVerticalInnterSpacing: CGFloat = 4
     public static var defaultPadding: CGFloat = 10
+    public static var smallPadding: CGFloat = 5
 }
 
