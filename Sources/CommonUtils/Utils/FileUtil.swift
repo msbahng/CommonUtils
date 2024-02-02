@@ -10,7 +10,11 @@ import Logger
 
 public class FileUtil {
     
-    private static let cacheTime: TimeInterval = 10 * 60        // temporary
+#if DEBUG
+    private static let cacheTime: TimeInterval = 10 * 60
+#else
+    private static let cacheTime: TimeInterval = 60 * 60 * 24 * 10   // 10 days
+#endif
     
     public static func getDocumentsDirectory() -> URL {
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)

@@ -53,20 +53,29 @@ struct ListTitleModifier: ViewModifier {
     }
 }
 
-struct ListCellHeaderModifier: ViewModifier {
+struct ListCellTitleModifier: ViewModifier {
+    
+    var isSmall: Bool
+    
     public func body(content: Content) -> some View {
         content
-            .font(.body)
-            .lineLimit(MS.Sizes.Layout.listCellTitleLines)
+            .font(isSmall ? .callout : .body)
+            .foregroundColor(Color.primary)
+            .lineLimit(isSmall ? MS.Sizes.Layout.listCellTitleLinesSmall : MS.Sizes.Layout.listCellTitleLines)
+            .multilineTextAlignment(.leading)
     }
 }
 
 struct ListCellDescriptionModifier: ViewModifier {
+    
+    var isSmall: Bool
+    
     public func body(content: Content) -> some View {
         content
-            .font(.body)
+            .font(isSmall ? .callout : .body)
             .foregroundColor(Color.secondary)
-            .lineLimit(MS.Sizes.Layout.listCellDescriptionLines)
+            .lineLimit(isSmall ? MS.Sizes.Layout.listCellDescriptionLinesSmall : MS.Sizes.Layout.listCellDescriptionLines)
+            .multilineTextAlignment(.leading)
     }
 }
 
@@ -124,12 +133,12 @@ extension Text {
         modifier(ListTitleModifier())
     }
     
-    public func listCellHeader() -> some View {
-        modifier(ListCellHeaderModifier())
+    public func listCellTitle(isSmall: Bool? = false) -> some View {
+        modifier(ListCellTitleModifier(isSmall: isSmall ?? false))
     }
     
-    public func listCellDescription() -> some View {
-        modifier(ListCellDescriptionModifier())
+    public func listCellDescription(isSmall: Bool? = false) -> some View {
+        modifier(ListCellDescriptionModifier(isSmall: isSmall ?? false))
     }
     
     public func tagText() -> some View {
