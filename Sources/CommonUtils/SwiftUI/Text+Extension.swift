@@ -115,6 +115,17 @@ struct MapAnnotationTextModifier: ViewModifier {
     }
 }
 
+struct RightAlignSmallModifier: ViewModifier {
+    public func body(content: Content) -> some View {
+        content
+            .font(.callout)
+            .foregroundColor(Color(UIColor.label))
+            .frame(maxWidth: .infinity, alignment: .trailing)
+            .padding(.leading, MS.Sizes.Layout.sideMargin)
+            .padding(.trailing, MS.Sizes.Layout.sideMargin)
+    }
+}
+
 
 extension Text {
     public func itemTitle() -> some View {
@@ -151,5 +162,9 @@ extension Text {
     
     public func mapAnnotationText() -> some View {
         modifier(MapAnnotationTextModifier())
+    }
+    
+    public func rightAlignSmallText() -> some View {
+        modifier(RightAlignSmallModifier())
     }
 }
