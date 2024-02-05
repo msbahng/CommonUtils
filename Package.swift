@@ -13,6 +13,9 @@ let package = Package(
         .library(
             name: "CommonUtils",
             targets: ["CommonUtils"]),
+        .library(
+            name: "CodeScanner",
+            targets: ["CodeScanner"]),
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
@@ -23,6 +26,9 @@ let package = Package(
         // Targets can depend on other targets in this package, and on products in packages this package depends on.
         .target(
             name: "CommonUtils",
+            dependencies: []),
+        .target(
+            name: "CodeScanner",
             dependencies: []),
         .testTarget(
             name: "CommonUtilsTests",
