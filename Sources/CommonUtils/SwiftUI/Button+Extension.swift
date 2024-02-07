@@ -10,9 +10,11 @@ import SwiftUI
 extension Button {
     
     public func fullWidthButtonStyle(
-        sideMargin: CGFloat = MS.Sizes.Layout.sideMargin
+        sideMargin: CGFloat = MS.Sizes.Layout.sideMargin,
+        verticalMargin: CGFloat = MS.Sizes.Layout.verticalMargin
     ) -> some View {
         self
             .padding(.horizontal, sideMargin)
+            .padding(.vertical, verticalMargin)
     }
 }
