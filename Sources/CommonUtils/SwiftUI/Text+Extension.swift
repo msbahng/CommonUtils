@@ -7,6 +7,18 @@
 
 import SwiftUI
 
+struct LargeTitleModifier: ViewModifier {
+    public func body(content: Content) -> some View {
+        content
+            .font(.title)
+            .frame(maxWidth: .infinity, alignment: .center)
+            .padding(.leading, MS.Sizes.Layout.sideMargin)
+            .padding(.trailing, MS.Sizes.Layout.sideMargin)
+            .padding(.top, MS.Sizes.Layout.verticalMargin)
+            .padding(.bottom, MS.Sizes.Layout.verticalMargin)
+    }
+}
+
 struct ItemTitleModifier: ViewModifier {
     public func body(content: Content) -> some View {
         content
@@ -128,6 +140,10 @@ struct RightAlignSmallModifier: ViewModifier {
 
 
 extension Text {
+    public func largeTitle() -> some View {
+        modifier(LargeTitleModifier())
+    }
+    
     public func itemTitle() -> some View {
         modifier(ItemTitleModifier())
     }
