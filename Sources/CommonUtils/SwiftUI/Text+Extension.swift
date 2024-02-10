@@ -74,6 +74,7 @@ struct ListCellTitleModifier: ViewModifier {
             .font(isSmall ? .callout : .body)
             .foregroundColor(Color.primary)
             .lineLimit(isSmall ? MS.Sizes.Layout.listCellTitleLinesSmall : MS.Sizes.Layout.listCellTitleLines)
+            .fixedSize(horizontal: false, vertical: true)
             .multilineTextAlignment(.leading)
     }
 }
@@ -87,6 +88,7 @@ struct ListCellDescriptionModifier: ViewModifier {
             .font(isSmall ? .callout : .body)
             .foregroundColor(Color.secondary)
             .lineLimit(isSmall ? MS.Sizes.Layout.listCellDescriptionLinesSmall : MS.Sizes.Layout.listCellDescriptionLines)
+            .fixedSize(horizontal: false, vertical: true)
             .multilineTextAlignment(.leading)
     }
 }
