@@ -6,8 +6,15 @@
 //
 
 import UIKit
+import Logger
 
 public class FileUtil {
+    
+#if DEBUG
+    private static let cacheTime: TimeInterval = 10 * 60
+#else
+    private static let cacheTime: TimeInterval = 60 * 60 * 24 * 10   // 10 days
+#endif
     
     public static func getDocumentsDirectory() -> URL {
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
@@ -15,7 +22,40 @@ public class FileUtil {
     }
     
     public static func getTempImageDirectory() -> URL? {
-        let directory = getDocumentsDirectory().appendingPathComponent("imageTemp", isDirectory: true)
+        Self.getFileDirectory(".imageTemp")
+    }
+    
+    public static func getfileCacheDirectory() -> URL? {
+        Self.getFileDirectory(".fileCache")
+    }
+    
+    public static func checkCachedFiles() {
+    
+        guard let cacheDirectory = FileUtil.getfileCacheDirectory() else {
+            return
+        }
+        
+        do {
+            let files = try FileManager.default.contentsOfDirectory(atPath: cacheDirectory.path)
+            
+            try files.forEach {
+                let fileUrl = cacheDirectory.appendingPathComponent($0)
+                guard let createdDate = fileUrl.createdDate else {
+                    return
+                }
+                
+                if Date().timeIntervalSince(createdDate) > Self.cacheTime {
+                    Logger.printLog("delete old file : \($0)")
+                    try FileManager.default.removeItem(at: fileUrl)
+                }
+            }
+        } catch {
+            Logger.printLog("error : \(error.localizedDescription)")
+        }
+    }
+    
+    public static func getFileDirectory(_ pathComponent: String) -> URL? {
+        let directory = getDocumentsDirectory().appendingPathComponent(pathComponent, isDirectory: true)
         
         if !FileManager.default.fileExists(atPath: directory.path) {
             do {
@@ -36,7 +76,7 @@ public class FileUtil {
         do {
             try FileManager.default.removeItem(atPath: directory.path)
         } catch {
-            print("error : \(error.localizedDescription)")
+            Logger.printLog("error : \(error.localizedDescription)")
         }
     }
     

@@ -21,8 +21,18 @@ public struct FontSizeResource {
 }
 
 public struct LayoutResource {
+    public static var verticalMargin: CGFloat = 5
     public static var sideMargin: CGFloat = 20
-    public static var verticalSpacing: CGFloat = 20
+    public static var verticalSpacing: CGFloat = 10
     public static var horizontalSpacing: CGFloat = 20
+    public static var listCellThumbnailSize = CGSize(width: 60, height: 60)
+    public static var mapAnnotationImageSize = CGSize(width: 50, height: 50)
+    public static var listCellTitleLines = 2
+    public static var listCellDescriptionLines = 2
+    public static var listCellTitleLinesSmall = 1
+    public static var listCellDescriptionLinesSmall = 2
+    public static var listCellVerticalInnterSpacing: CGFloat = 4
+    public static var defaultPadding: CGFloat = 10
+    public static var smallPadding: CGFloat = 5
 }
 

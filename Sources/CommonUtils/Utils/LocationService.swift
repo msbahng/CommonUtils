@@ -12,7 +12,7 @@ import UserNotifications
 
 public protocol LocationServiceProtocol {
 //    func isEnable() -> Bool
-    func checkLocationAuthorization()
+    func checkLocationAuthorization(isAlways: Bool)
     func fetchLocation(_ changeStatus: @escaping (Result<Location, LocationError>) -> Void)
     func updateNotification(
         id: String,
@@ -65,8 +65,12 @@ public class LocationService: NSObject, LocationServiceProtocol {
 //        }
 //    }
     
-    public func checkLocationAuthorization() {
-        locationManager.requestAlwaysAuthorization()
+    public func checkLocationAuthorization(isAlways: Bool = false) {
+        if isAlways {
+            locationManager.requestAlwaysAuthorization()
+        } else {
+            locationManager.requestWhenInUseAuthorization()
+        }
     }
 
     public func fetchLocation(_ changeStatus: @escaping (Result<Location, LocationError>) -> Void) {
