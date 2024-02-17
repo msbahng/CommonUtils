@@ -19,8 +19,8 @@ let package = Package(
     ],
     dependencies: [
         .package(
-            url:  "git@github.com:msbahng/LoggeriOS.git",
-            .upToNextMajor(from: "1.0.0")
+            url: "git@github.com:msbahng/LoggeriOS.git",
+            .exact("1.0.0")
 //            path: "../LoggeriOS"
         ),
     ],
