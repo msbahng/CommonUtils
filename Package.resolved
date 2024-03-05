@@ -5,7 +5,7 @@
       "kind" : "remoteSourceControl",
       "location" : "git@github.com:msbahng/LoggeriOS.git",
       "state" : {
-        "revision" : "e9c8f51c6cf528f476b35eb71a8f18d27eb881bf",
+        "revision" : "08954426ebf246925eb1de44bf095c959f89f254",
         "version" : "1.0.0"
       }
     }
