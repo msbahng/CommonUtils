@@ -11,7 +11,7 @@ import NotificationCenter
 import UserNotifications
 
 public protocol LocationServiceProtocol {
-//    func isEnable() -> Bool
+    func isEnable() -> Bool
     func checkLocationAuthorization(isAlways: Bool)
     func fetchLocation(_ changeStatus: @escaping (Result<Location, LocationError>) -> Void)
     func updateNotification(
@@ -55,15 +55,15 @@ public class LocationService: NSObject, LocationServiceProtocol {
 //        locationManager.distanceFilter = 100.0
     }
 
-//    public func isEnable() -> Bool {
-//        switch locationManager.authorizationStatus {
-//        case .authorizedAlways, .authorizedWhenInUse:
-//            return true
-//
-//        default:
-//            return false
-//        }
-//    }
+    public func isEnable() -> Bool {
+        switch locationManager.authorizationStatus {
+        case .authorizedAlways, .authorizedWhenInUse:
+            return true
+
+        default:
+            return false
+        }
+    }
     
     public func checkLocationAuthorization(isAlways: Bool = false) {
         if isAlways {
