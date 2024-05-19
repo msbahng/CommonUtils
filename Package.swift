@@ -5,6 +5,7 @@ import PackageDescription
 
 let package = Package(
     name: "CommonUtils",
+    defaultLocalization: "en",
     platforms: [
         .iOS(.v17)
     ],

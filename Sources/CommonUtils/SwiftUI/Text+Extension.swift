@@ -19,6 +19,19 @@ struct LargeTitleModifier: ViewModifier {
     }
 }
 
+struct LargeDescriptionModifier: ViewModifier {
+    public func body(content: Content) -> some View {
+        content
+            .font(.headline)
+            .frame(maxWidth: .infinity, alignment: .center)
+            .padding(.leading, MS.Sizes.Layout.sideMargin)
+            .padding(.trailing, MS.Sizes.Layout.sideMargin)
+            .padding(.top, MS.Sizes.Layout.verticalMargin)
+            .padding(.bottom, MS.Sizes.Layout.verticalMargin)
+    }
+}
+
+
 struct ItemTitleModifier: ViewModifier {
     public func body(content: Content) -> some View {
         content
@@ -144,6 +157,10 @@ struct RightAlignSmallModifier: ViewModifier {
 extension Text {
     public func largeTitle() -> some View {
         modifier(LargeTitleModifier())
+    }
+    
+    public func largeDescription() -> some View {
+        modifier(LargeDescriptionModifier())
     }
     
     public func itemTitle() -> some View {
