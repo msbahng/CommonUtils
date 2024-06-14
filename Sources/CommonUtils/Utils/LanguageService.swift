@@ -12,7 +12,6 @@ public enum LanguageService: String, Codable, CaseIterable, Identifiable {
     case english = "en"
     case japanese = "ja"
     case korean = "ko"
-//    case none
     
     public var id: Self {
         return self
@@ -27,20 +26,6 @@ public enum LanguageService: String, Codable, CaseIterable, Identifiable {
         
         return localizedLanguage
     }
-    
-//    public static func getCurrentLanguage() -> LanguageService {
-//            
-//        guard let userLanguage = UserDefaults.standard.string(forKey:"_CurrentLanguage_") else {
-//            return getSystemLanguage()
-//        }
-//        
-//        return LanguageService(rawValue: userLanguage) ?? .english
-//    }
-//        
-//    public static func setCurrentLanguage(value: LanguageService) {
-//        UserDefaults.standard.set(value.rawValue, forKey: "_CurrentLanguage_")
-//        UserDefaults.standard.synchronize()
-//    }
     
     public static func getSystemLanguage() -> LanguageService {
         

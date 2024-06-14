@@ -85,6 +85,7 @@ struct ListCellTitleModifier: ViewModifier {
     public func body(content: Content) -> some View {
         content
             .font(isSmall ? .callout : .body)
+            .frame(maxWidth: .infinity, alignment: .leading)
             .foregroundColor(Color.primary)
             .lineLimit(isSmall ? MS.Sizes.Layout.listCellTitleLinesSmall : MS.Sizes.Layout.listCellTitleLines)
             .fixedSize(horizontal: false, vertical: true)
@@ -99,6 +100,7 @@ struct ListCellDescriptionModifier: ViewModifier {
     public func body(content: Content) -> some View {
         content
             .font(isSmall ? .callout : .body)
+            .frame(maxWidth: .infinity, alignment: .leading)
             .foregroundColor(Color.secondary)
             .lineLimit(isSmall ? MS.Sizes.Layout.listCellDescriptionLinesSmall : MS.Sizes.Layout.listCellDescriptionLines)
             .fixedSize(horizontal: false, vertical: true)
