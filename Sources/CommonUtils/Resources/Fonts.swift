@@ -8,7 +8,7 @@
 import UIKit
 import SwiftUI
 
-public struct MSFont {
+public struct MSFont: Sendable {
     var normal: Font
     var big: Font
     
@@ -21,13 +21,13 @@ public struct MSFont {
     }
 }
 
-public struct FontResources {
+public struct FontResources: Sendable {
     public var Shared: SharedFontResources = SharedFontResources()
 
     public init() {}
 }
 
-public struct SharedFontResources {
+public struct SharedFontResources: Sendable {
     
     public var cellTitle: MSFont = MSFont(normal: .system(size: 14), big: .system(size: 16))
     public var title: MSFont = MSFont(normal: .system(size: 16), big: .system(size: 20))

@@ -8,7 +8,7 @@
 import UIKit
 import SwiftUI
 
-private struct Palette {
+private struct Palette: Sendable {
     static let extraLightGray: UIColor = #colorLiteral(red: 0.9568627451, green: 0.9568627451, blue: 0.9568627451, alpha: 1)
     static let lightGray: UIColor = #colorLiteral(red: 0.8666666667, green: 0.8666666667, blue: 0.8666666667, alpha: 1)
     static let gray: UIColor = #colorLiteral(red: 0.7540688515, green: 0.7540867925, blue: 0.7540771365, alpha: 1)
@@ -37,12 +37,12 @@ private struct Palette {
     static let transparentLightBlue: UIColor = #colorLiteral(red: 0.831372549, green: 0.8745098039, blue: 0.9058823529, alpha: 0.252541738)
 }
 
-public struct ColorResources {
+public struct ColorResources: Sendable {
     public var Shared: GeneralColorResources = GeneralColorResources()
     public init() {}
 }
 
-public struct GeneralColorResources {
+public struct GeneralColorResources: Sendable {
     
     public var clearColor: Color = Color(Palette.clear)
     public var placeholderTextColor: Color = Color(Palette.lightGray)

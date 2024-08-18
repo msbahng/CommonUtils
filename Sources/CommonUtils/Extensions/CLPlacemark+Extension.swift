@@ -12,7 +12,7 @@ extension CLPlacemark {
     func makeAddressString() -> String {
         
         switch (self.subThoroughfare, self.thoroughfare, self.locality, self.administrativeArea, self.postalCode, self.country) {
-        case let (.some(subThoroughfare), .some(thoroughfare), .some(locality), .some(administrativeArea), .some(postalCode), .some(country)):
+        case let (.some(subThoroughfare), .some(thoroughfare), .some(locality), .some(administrativeArea), .some(_), .some(country)):
             
             let pre = Locale.preferredLanguages[0]
             print("language : ", pre)

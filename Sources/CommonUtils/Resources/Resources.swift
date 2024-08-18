@@ -7,11 +7,11 @@
 
 import UIKit
 
-public internal(set) var MS: Resources = privateDefaultResources
+public let MS: Resources = privateDefaultResources
 
 internal let privateDefaultResources = Resources()
 
-public struct Resources {
+public struct Resources: Sendable {
 
     public var Colors = ColorResources()
     public var Sizes = SizeResources()
