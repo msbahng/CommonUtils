@@ -41,7 +41,8 @@ public enum LocationError: Error {
     case failed
 }
 
-public class LocationService: NSObject, LocationServiceProtocol {
+// TODO : fix @unchecked Sendable
+public class LocationService: NSObject, LocationServiceProtocol, @unchecked Sendable {
 
     public static let shared = LocationService()
     

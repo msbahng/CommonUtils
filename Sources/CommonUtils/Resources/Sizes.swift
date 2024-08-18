@@ -9,30 +9,30 @@ import UIKit
 import SwiftUI
 
 
-public struct SizeResources {
+public struct SizeResources: Sendable {
     public var Font: FontSizeResource.Type = FontSizeResource.self /* static apple sizes */
     public var Layout: LayoutResource.Type = LayoutResource.self
     public init() {}
 }
 
-public struct FontSizeResource {
-    public static var largeTitle: Font = .system(size: 14)
-    public static var smallTitle: Font = .system(size: 12)
+public struct FontSizeResource: Sendable {
+    public static let largeTitle: Font = .system(size: 14)
+    public static let smallTitle: Font = .system(size: 12)
 }
 
-public struct LayoutResource {
-    public static var verticalMargin: CGFloat = 5
-    public static var sideMargin: CGFloat = 20
-    public static var verticalSpacing: CGFloat = 10
-    public static var horizontalSpacing: CGFloat = 20
-    public static var listCellThumbnailSize = CGSize(width: 60, height: 60)
-    public static var mapAnnotationImageSize = CGSize(width: 50, height: 50)
-    public static var listCellTitleLines = 2
-    public static var listCellDescriptionLines = 2
-    public static var listCellTitleLinesSmall = 1
-    public static var listCellDescriptionLinesSmall = 1
-    public static var listCellVerticalInnterSpacing: CGFloat = 4
-    public static var defaultPadding: CGFloat = 10
-    public static var smallPadding: CGFloat = 5
+public struct LayoutResource: Sendable {
+    public static let verticalMargin: CGFloat = 5
+    public static let sideMargin: CGFloat = 20
+    public static let verticalSpacing: CGFloat = 10
+    public static let horizontalSpacing: CGFloat = 20
+    public static let listCellThumbnailSize = CGSize(width: 60, height: 60)
+    public static let mapAnnotationImageSize = CGSize(width: 50, height: 50)
+    public static let listCellTitleLines = 2
+    public static let listCellDescriptionLines = 2
+    public static let listCellTitleLinesSmall = 1
+    public static let listCellDescriptionLinesSmall = 1
+    public static let listCellVerticalInnterSpacing: CGFloat = 4
+    public static let defaultPadding: CGFloat = 10
+    public static let smallPadding: CGFloat = 5
 }
 
