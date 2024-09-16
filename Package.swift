@@ -15,24 +15,29 @@ let package = Package(
             name: "CommonUtils",
             targets: ["CommonUtils"]),
         .library(
+            name: "SwiftUiUtils",
+            targets: ["SwiftUiUtils"]),
+        .library(
             name: "CodeScanner",
             targets: ["CodeScanner"]),
+        .library(
+            name: "Logger",
+            targets: ["Logger"]),
     ],
     dependencies: [
-        .package(
-            url: "git@github.com:msbahng/LoggeriOS.git",
-            .upToNextMinor(from: "1.0.0")
-//            path: "../LoggeriOS"
-        )
     ],
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
         // Targets can depend on other targets in this package, and on products in packages this package depends on.
         .target(
             name: "CommonUtils",
-            dependencies: [
-                .product(name: "Logger", package: "LoggeriOS")
-            ],
+            dependencies: ["Logger"],
+            swiftSettings: [
+                .enableExperimentalFeature("StrictConcurrency")
+            ]),
+        .target(
+            name: "SwiftUiUtils",
+            dependencies: ["CommonUtils"],
             swiftSettings: [
                 .enableExperimentalFeature("StrictConcurrency")
             ]),
@@ -40,6 +45,13 @@ let package = Package(
             name: "CodeScanner",
             dependencies: [],
             swiftSettings: [
+                .enableExperimentalFeature("StrictConcurrency")
+            ]),
+        .target(
+            name: "Logger",
+            dependencies: [],
+            swiftSettings: [
+                .define("DEBUG_AVAILABLE", .when(configuration: .debug)),
                 .enableExperimentalFeature("StrictConcurrency")
             ]),
         .testTarget(

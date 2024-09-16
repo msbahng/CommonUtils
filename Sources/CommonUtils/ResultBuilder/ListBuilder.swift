@@ -1,36 +1,6 @@
 
 import Foundation
 
-/**
- Build a generic list of items in a swiftui like DSL
-
-  # Example
-
- ```
- var landscape = false
-
- struct ViewList {
-
-    @ListBuilder<NSView>
-    var UIParts: [NSView] {
-
-        if landscape {
-            NSCollectionView()
-        } else {
-            NSTableView()
-        }
-
-        NSTabView()
-    }
- }
-
- let list = ViewList()
- let views = list.UIParts
-
- //[<NSTableView>, <NSTabView>]
- print(views)
- ```
- */
 @resultBuilder
 public struct ListBuilder<T> {
 
