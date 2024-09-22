@@ -9,6 +9,7 @@
 import UIKit
 import MapKit
 
+@MainActor
 public protocol SearchTableViewContollerDelegate {
     func locationSelected(_ location: CLLocationCoordinate2D)
 }

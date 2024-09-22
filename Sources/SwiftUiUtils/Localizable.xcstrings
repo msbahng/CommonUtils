@@ -46,6 +46,7 @@
       }
     },
     "test_text" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
