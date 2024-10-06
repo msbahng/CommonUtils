@@ -8,8 +8,6 @@ let swiftSettings: [SwiftSetting] = [
     .define("DEBUG_AVAILABLE", .when(configuration: .debug))
 ]
 
-let swiftSettingsForAlwaysLocation: [SwiftSetting] = swiftSettings + [.define("ALWAYS_LOCATION")]
-
 let package = Package(
     name: "CommonUtils",
     defaultLocalization: "en",
@@ -21,9 +19,6 @@ let package = Package(
         .library(
             name: "CommonUtils",
             targets: ["CommonUtils"]),
-        .library(
-            name: "CommonUtilsForAlwaysLocation",
-            targets: ["CommonUtilsForAlwaysLocation"]),
         .library(
             name: "SwiftUiUtils",
             targets: ["SwiftUiUtils"]),
@@ -43,11 +38,6 @@ let package = Package(
             name: "CommonUtils",
             dependencies: ["Logger"],
             swiftSettings: swiftSettings),
-        .target(
-            name: "CommonUtilsForAlwaysLocation",
-            dependencies: ["Logger"],
-            path: "Sources/CommonUtils",
-            swiftSettings: swiftSettingsForAlwaysLocation),
         .target(
             name: "SwiftUiUtils",
             dependencies: ["CommonUtils"],
