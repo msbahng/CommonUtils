@@ -67,11 +67,15 @@ public class LocationService: NSObject, LocationServiceProtocol, @unchecked Send
     }
     
     public func checkLocationAuthorization(isAlways: Bool = false) {
+#if ALWAYS_LOCATION
         if isAlways {
             locationManager.requestAlwaysAuthorization()
         } else {
             locationManager.requestWhenInUseAuthorization()
         }
+#else
+        locationManager.requestWhenInUseAuthorization()
+#endif
     }
 
     public func fetchLocation(_ changeStatus: @escaping (Result<Location, LocationError>) -> Void) {
