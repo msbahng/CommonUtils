@@ -24,6 +24,7 @@ public protocol LocationServiceProtocol {
         onExit: Bool
     )
     func removeNotification(id: String)
+    var locationManager: CLLocationManager { get }
 }
 
 public struct Location {
@@ -46,7 +47,7 @@ public class LocationService: NSObject, LocationServiceProtocol, @unchecked Send
 
     public static let shared = LocationService()
     
-    private let locationManager = CLLocationManager()
+    public let locationManager = CLLocationManager()
     var locationUpdated: ((Result<Location, LocationError>) -> Void)?
 
     public override init() {
