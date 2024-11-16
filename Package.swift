@@ -12,7 +12,7 @@ let package = Package(
     name: "CommonUtils",
     defaultLocalization: "en",
     platforms: [
-        .iOS(.v17)
+        .iOS(.v16)
     ],
     products: [
         // Products define the executables and libraries a package produces, and make them visible to other packages.
