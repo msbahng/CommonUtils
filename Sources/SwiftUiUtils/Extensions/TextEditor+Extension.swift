@@ -11,10 +11,12 @@ import CommonUtils
 extension TextEditor {
     
     public func textEditorStyle(
-        minHeight: CGFloat = 50
+        minHeight: CGFloat = 50,
+        height: CGFloat?
     ) -> some View {
         self
             .foregroundColor(Color.gray)
+            .frame(height: height)
             .frame(minHeight: minHeight)
             .overlay(
                 RoundedRectangle(cornerRadius: 10)
