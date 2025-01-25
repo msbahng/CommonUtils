@@ -17,8 +17,8 @@ extension UIImage {
         return resizedImage
     }
     
-    public func resizeToSmall(imageSize: CGFloat) -> UIImage? {
-        let maxSize: CGFloat = imageSize / UIScreen.main.scale
+    public func resizeToSmall(imageSize: CGFloat, scale: CGFloat) -> UIImage? {
+        let maxSize: CGFloat = scale > 0 ? (imageSize / scale) : imageSize
         
         guard size.width > maxSize || size.height > maxSize else {
             return self

@@ -7,8 +7,9 @@
 
 import Foundation
 
+@available(iOS 17.0, *)
 public func continuousObservationTracking<T>(
-    _ apply: @escaping () -> T,
+    _ apply: @escaping (@Sendable () -> T),
     onChange: @escaping (@Sendable () -> Void)
 ) {
     _ = withObservationTracking(apply, onChange: {

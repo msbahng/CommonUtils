@@ -12,7 +12,7 @@ import UserNotifications
 
 public protocol LocationServiceProtocol {
     func isEnable() -> Bool
-    func checkLocationAuthorization(isAlways: Bool)
+    func checkLocationAuthorizationWhenInUse()
     func fetchLocation(_ changeStatus: @escaping (Result<Location, LocationError>) -> Void)
     func updateNotification(
         id: String,
@@ -24,6 +24,7 @@ public protocol LocationServiceProtocol {
         onExit: Bool
     )
     func removeNotification(id: String)
+    var locationManager: CLLocationManager { get }
 }
 
 public struct Location {
@@ -46,7 +47,7 @@ public class LocationService: NSObject, LocationServiceProtocol, @unchecked Send
 
     public static let shared = LocationService()
     
-    private let locationManager = CLLocationManager()
+    public let locationManager = CLLocationManager()
     var locationUpdated: ((Result<Location, LocationError>) -> Void)?
 
     public override init() {
@@ -66,12 +67,9 @@ public class LocationService: NSObject, LocationServiceProtocol, @unchecked Send
         }
     }
     
-    public func checkLocationAuthorization(isAlways: Bool = false) {
-        if isAlways {
-            locationManager.requestAlwaysAuthorization()
-        } else {
-            locationManager.requestWhenInUseAuthorization()
-        }
+    // if requestAlwaysAuthorization() is needed, override this method
+    public func checkLocationAuthorizationWhenInUse() {
+        locationManager.requestWhenInUseAuthorization()
     }
 
     public func fetchLocation(_ changeStatus: @escaping (Result<Location, LocationError>) -> Void) {

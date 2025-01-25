@@ -2,58 +2,28 @@
 import AVFoundation
 import SwiftUI
 
-/// An enum describing the ways CodeScannerView can hit scanning problems.
 public enum ScanError: Error {
-    /// The camera could not be accessed.
     case badInput
-
-    /// The camera was not capable of scanning the requested codes.
     case badOutput
-
-    /// Initialization failed.
     case initError(_ error: Error)
-  
-    /// The camera permission is denied 
     case permissionDenied
 }
 
-/// The result from a successful scan: the string that was scanned, and also the type of data that was found.
-/// The type is useful for times when you've asked to scan several different code types at the same time, because
-/// it will report the exact code type that was found.
 @available(macCatalyst 14.0, *)
 public struct ScanResult {
-    /// The contents of the code.
     public let string: String
-
-    /// The type of code that was matched.
     public let type: AVMetadataObject.ObjectType
-    
-    /// The image of the code that was matched
     public let image: UIImage?
-  
-    /// The corner coordinates of the scanned code.
     public let corners: [CGPoint]
 }
 
-/// The operating mode for CodeScannerView.
 public enum ScanMode {
-    /// Scan exactly one code, then stop.
     case once
-
-    /// Scan each code no more than once.
     case oncePerCode
-
-    /// Keep scanning all codes until dismissed.
     case continuous
-
-    /// Scan only when capture button is tapped.
     case manual
 }
 
-/// A SwiftUI view that is able to scan barcodes, QR codes, and more, and send back what was found.
-/// To use, set `codeTypes` to be an array of things to scan for, e.g. `[.qr]`, and set `completion` to
-/// a closure that will be called when scanning has finished. This will be sent the string that was detected or a `ScanError`.
-/// For testing inside the simulator, set the `simulatedData` property to some test data you want to send back.
 @available(macCatalyst 14.0, *)
 public struct CodeScannerView: UIViewControllerRepresentable {
     
