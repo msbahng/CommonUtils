@@ -37,22 +37,27 @@ let package = Package(
         .target(
             name: "CommonUtils",
             dependencies: ["Logger"],
+            path: "Sources/CommonUtils",
             swiftSettings: swiftSettings),
         .target(
             name: "SwiftUiUtils",
             dependencies: ["CommonUtils"],
+            path: "Sources/SwiftUiUtils",
             swiftSettings: swiftSettings),
         .target(
             name: "CodeScanner",
             dependencies: [],
+            path: "Sources/CodeScanner",
             swiftSettings: swiftSettings),
         .target(
             name: "Logger",
             dependencies: [],
+            path: "Sources/Logger",
             swiftSettings: swiftSettings),
         .testTarget(
             name: "CommonUtilsTests",
             dependencies: ["CommonUtils"],
+            path: "Tests",
             swiftSettings: swiftSettings),
     ]
 )

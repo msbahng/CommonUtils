@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import Logger
 
 public class FileUtil {
     
@@ -45,12 +44,12 @@ public class FileUtil {
                 }
                 
                 if Date().timeIntervalSince(createdDate) > Self.cacheTime {
-                    Logger.printLog("delete old file : \($0)")
+                    print("delete old file : \($0)")
                     try FileManager.default.removeItem(at: fileUrl)
                 }
             }
         } catch {
-            Logger.printLog("error : \(error.localizedDescription)")
+            print("error : \(error.localizedDescription)")
         }
     }
     
@@ -76,7 +75,7 @@ public class FileUtil {
         do {
             try FileManager.default.removeItem(atPath: directory.path)
         } catch {
-            Logger.printLog("error : \(error.localizedDescription)")
+            print("error : \(error.localizedDescription)")
         }
     }
     
