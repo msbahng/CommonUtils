@@ -1,3 +1,3 @@
-# CommonUtils Sample App
+# CommonUtils
 
 A description of this package.
