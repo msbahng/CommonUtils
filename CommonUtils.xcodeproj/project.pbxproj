@@ -15,7 +15,6 @@
 		A1F339002D45BA170068B922 /* CommonUtils in Frameworks */ = {isa = PBXBuildFile; productRef = A1F338FF2D45BA170068B922 /* CommonUtils */; };
 		A1F339022D45BA170068B922 /* Logger in Frameworks */ = {isa = PBXBuildFile; productRef = A1F339012D45BA170068B922 /* Logger */; };
 		A1F339042D45BA170068B922 /* SwiftUiUtils in Frameworks */ = {isa = PBXBuildFile; productRef = A1F339032D45BA170068B922 /* SwiftUiUtils */; };
-		A1F339192D45BC6A0068B922 /* SimpleViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F339172D45BC6A0068B922 /* SimpleViews.swift */; };
 		A1F3391A2D45BC6A0068B922 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F339162D45BC6A0068B922 /* ContentView.swift */; };
 		A1F3391B2D45BC6A0068B922 /* CommonUtilsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F339152D45BC6A0068B922 /* CommonUtilsApp.swift */; };
 		A1F3391C2D45BC6A0068B922 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1F339122D45BC6A0068B922 /* Preview Assets.xcassets */; };
@@ -24,6 +23,15 @@
 		A1F339222D45BD250068B922 /* CommonUtils in Frameworks */ = {isa = PBXBuildFile; productRef = A1F339212D45BD250068B922 /* CommonUtils */; };
 		A1F339242D45BD250068B922 /* Logger in Frameworks */ = {isa = PBXBuildFile; productRef = A1F339232D45BD250068B922 /* Logger */; };
 		A1F339262D45BD250068B922 /* SwiftUiUtils in Frameworks */ = {isa = PBXBuildFile; productRef = A1F339252D45BD250068B922 /* SwiftUiUtils */; };
+		A1F339642D45C33B0068B922 /* SimpleCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F339622D45C33B0068B922 /* SimpleCellView.swift */; };
+		A1F339652D45C33B0068B922 /* FlowStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F339612D45C33B0068B922 /* FlowStackView.swift */; };
+		A1F339842D45C6BA0068B922 /* ButtonStylesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F339832D45C6BA0068B922 /* ButtonStylesView.swift */; };
+		A1F339862D45C8700068B922 /* ViewExtensionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F339852D45C8660068B922 /* ViewExtensionView.swift */; };
+		A1F339882D45CCBE0068B922 /* ShapeStyleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F339872D45CCBA0068B922 /* ShapeStyleView.swift */; };
+		A1F3398A2D45CF220068B922 /* TextEditorExtensionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F339892D45CF1B0068B922 /* TextEditorExtensionView.swift */; };
+		A1F3398C2D45D0B10068B922 /* TextFieldExtensionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F3398B2D45D0A90068B922 /* TextFieldExtensionView.swift */; };
+		A1F339AB2D46119A0068B922 /* ButtonExtensionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F339AA2D4611940068B922 /* ButtonExtensionView.swift */; };
+		A1F33B202D4DB6190068B922 /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F33B1F2D4DB6160068B922 /* ToastView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,7 +40,15 @@
 		A1F339142D45BC6A0068B922 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A1F339152D45BC6A0068B922 /* CommonUtilsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonUtilsApp.swift; sourceTree = "<group>"; };
 		A1F339162D45BC6A0068B922 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		A1F339172D45BC6A0068B922 /* SimpleViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleViews.swift; sourceTree = "<group>"; };
+		A1F339612D45C33B0068B922 /* FlowStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowStackView.swift; sourceTree = "<group>"; };
+		A1F339622D45C33B0068B922 /* SimpleCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleCellView.swift; sourceTree = "<group>"; };
+		A1F339832D45C6BA0068B922 /* ButtonStylesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStylesView.swift; sourceTree = "<group>"; };
+		A1F339852D45C8660068B922 /* ViewExtensionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensionView.swift; sourceTree = "<group>"; };
+		A1F339872D45CCBA0068B922 /* ShapeStyleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapeStyleView.swift; sourceTree = "<group>"; };
+		A1F339892D45CF1B0068B922 /* TextEditorExtensionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextEditorExtensionView.swift; sourceTree = "<group>"; };
+		A1F3398B2D45D0A90068B922 /* TextFieldExtensionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldExtensionView.swift; sourceTree = "<group>"; };
+		A1F339AA2D4611940068B922 /* ButtonExtensionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonExtensionView.swift; sourceTree = "<group>"; };
+		A1F33B1F2D4DB6160068B922 /* ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,13 +109,29 @@
 		A1F339182D45BC6A0068B922 /* CommonUtilsSample */ = {
 			isa = PBXGroup;
 			children = (
+				A1F339632D45C33B0068B922 /* Views */,
 				A1F339132D45BC6A0068B922 /* Preview Content */,
 				A1F339142D45BC6A0068B922 /* Assets.xcassets */,
 				A1F339152D45BC6A0068B922 /* CommonUtilsApp.swift */,
 				A1F339162D45BC6A0068B922 /* ContentView.swift */,
-				A1F339172D45BC6A0068B922 /* SimpleViews.swift */,
 			);
 			path = CommonUtilsSample;
+			sourceTree = "<group>";
+		};
+		A1F339632D45C33B0068B922 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A1F33B1F2D4DB6160068B922 /* ToastView.swift */,
+				A1F339AA2D4611940068B922 /* ButtonExtensionView.swift */,
+				A1F3398B2D45D0A90068B922 /* TextFieldExtensionView.swift */,
+				A1F339892D45CF1B0068B922 /* TextEditorExtensionView.swift */,
+				A1F339872D45CCBA0068B922 /* ShapeStyleView.swift */,
+				A1F339852D45C8660068B922 /* ViewExtensionView.swift */,
+				A1F339832D45C6BA0068B922 /* ButtonStylesView.swift */,
+				A1F339612D45C33B0068B922 /* FlowStackView.swift */,
+				A1F339622D45C33B0068B922 /* SimpleCellView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -190,9 +222,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A1F339192D45BC6A0068B922 /* SimpleViews.swift in Sources */,
 				A1F3391A2D45BC6A0068B922 /* ContentView.swift in Sources */,
+				A1F3398C2D45D0B10068B922 /* TextFieldExtensionView.swift in Sources */,
 				A1F3391B2D45BC6A0068B922 /* CommonUtilsApp.swift in Sources */,
+				A1F339842D45C6BA0068B922 /* ButtonStylesView.swift in Sources */,
+				A1F339642D45C33B0068B922 /* SimpleCellView.swift in Sources */,
+				A1F3398A2D45CF220068B922 /* TextEditorExtensionView.swift in Sources */,
+				A1F33B202D4DB6190068B922 /* ToastView.swift in Sources */,
+				A1F339AB2D46119A0068B922 /* ButtonExtensionView.swift in Sources */,
+				A1F339882D45CCBE0068B922 /* ShapeStyleView.swift in Sources */,
+				A1F339652D45C33B0068B922 /* FlowStackView.swift in Sources */,
+				A1F339862D45C8700068B922 /* ViewExtensionView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
