@@ -9,7 +9,7 @@ import SwiftUI
 
 public struct BorderedButtonStyle: ButtonStyle {
     
-    public init() { }
+//    public init() { }
     
     public func makeBody(configuration: Configuration) -> some View {
         configuration.label
