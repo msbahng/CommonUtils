@@ -17,8 +17,6 @@ public struct BannerViewContainer: UIViewRepresentable {
     private let bannerSize: AdSize
     @Binding private var isAdLoaded: Bool
     
-    private let bannerView = AdManagerBannerView()
-    
     public init(
         adUnitID: String,
         bannerSize: AdSize = Self.defaultBannerSize,
@@ -32,12 +30,17 @@ public struct BannerViewContainer: UIViewRepresentable {
     public func makeUIView(context: Context) -> UIView {
         let view = UIView()
         view.addSubview(context.coordinator.bannerView)
+        
+        NSLayoutConstraint.activate([
+            context.coordinator.bannerView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            context.coordinator.bannerView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+        ])
+        
         return view
     }
     
     public func updateUIView(_ uiView: UIView, context: Context) {
         context.coordinator.bannerView.adSize = bannerSize
-        context.coordinator.bannerView.center = uiView.center
     }
     
     public func makeCoordinator() -> BannerCoordinator {
@@ -49,6 +52,7 @@ public struct BannerViewContainer: UIViewRepresentable {
         
         private(set) lazy var bannerView: BannerView = {
             let banner = BannerView(adSize: parent.bannerSize)
+            banner.translatesAutoresizingMaskIntoConstraints = false
             banner.adUnitID = parent.adUnitID
             banner.load(Request())
             banner.delegate = self
