@@ -26,10 +26,17 @@ let package = Package(
             name: "CodeScanner",
             targets: ["CodeScanner"]),
         .library(
+            name: "AdmobUtils",
+            targets: ["AdmobUtils"]),
+        .library(
             name: "Logger",
             targets: ["Logger"]),
     ],
     dependencies: [
+        .package(
+            url:  "https://github.com/googleads/swift-package-manager-google-mobile-ads.git",
+            .upToNextMajor(from: "12.3.0")
+        ),
     ],
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
@@ -48,6 +55,14 @@ let package = Package(
             name: "CodeScanner",
             dependencies: [],
             path: "Sources/CodeScanner",
+            swiftSettings: swiftSettings),
+        .target(
+            name: "AdmobUtils",
+            dependencies: [
+                "Logger",
+                .product(name: "GoogleMobileAds", package: "swift-package-manager-google-mobile-ads"),
+            ],
+            path: "Sources/AdmobUtils",
             swiftSettings: swiftSettings),
         .target(
             name: "Logger",

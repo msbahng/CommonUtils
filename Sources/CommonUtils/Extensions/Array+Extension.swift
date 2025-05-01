@@ -14,7 +14,7 @@ public protocol Reorderable {
 
 public extension Array where Element: Reorderable {
 
-    public func reorder(by preferredOrder: [Element.OrderElement]) -> [Element] {
+    func reorder(by preferredOrder: [Element.OrderElement]) -> [Element] {
         sorted {
             guard let first = preferredOrder.firstIndex(of: $0.orderElement) else {
                 return false
