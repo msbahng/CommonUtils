@@ -11,18 +11,19 @@ import GoogleMobileAds
 
 public struct BannerView: UIViewControllerRepresentable {
     
+    public static let defaultBannerSize = AdSizeBanner
+    
     private let adUnitID: String
-    
-    public static var bannerHeight: CGFloat {
-        bannerSize.size.height
-    }
-    
-    static let bannerSize = AdSizeBanner
+    private let bannerSize: AdSize
     
     private let bannerView = AdManagerBannerView()
     
-    public init(adUnitID: String) {
+    public init(
+        adUnitID: String,
+        bannerSize: AdSize = Self.defaultBannerSize
+    ) {
         self.adUnitID = adUnitID
+        self.bannerSize = bannerSize
     }
     
     public func makeUIViewController(context: Context) -> some UIViewController {
@@ -45,7 +46,7 @@ public struct BannerView: UIViewControllerRepresentable {
     }
     
     public func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
-        bannerView.adSize = Self.bannerSize
+        bannerView.adSize = bannerSize
         bannerView.load(Request())
     }
     
