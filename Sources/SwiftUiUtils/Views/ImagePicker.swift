@@ -17,12 +17,12 @@ public struct ImagePicker: UIViewControllerRepresentable {
     }
     
     private let selectionType: SelectionType
-    @Binding private var images: [UIImage]
+    @Binding private var images: [URL]
     private let selectionLimit: Int?
     
     public init(
         selectionType: SelectionType,
-        images: Binding<[UIImage]>,
+        images: Binding<[URL]>,
         selectionLimit: Int? = 0
     ) {
         self.selectionType = selectionType
@@ -64,17 +64,27 @@ public struct ImagePicker: UIViewControllerRepresentable {
             for (_, result) in results.enumerated() {
                 let provider = result.itemProvider
                 
-                if provider.canLoadObject(ofClass: UIImage.self) {
-                    provider.loadObject(ofClass: UIImage.self) { image, _ in
-                        guard let image = image as? UIImage else {
-                            return
-                        }
-                        
-                        DispatchQueue.main.async {
-                            self.parent.images.append(image)
-                        }
+                provider.loadFileRepresentation(forTypeIdentifier: "public.item") { (url, error) in
+                    guard let url else {
+                        return
+                    }
+                    
+                    DispatchQueue.main.async {
+                        self.parent.images.append(url)
                     }
                 }
+                
+//                if provider.canLoadObject(ofClass: UIImage.self) {
+//                    provider.loadObject(ofClass: UIImage.self) { image, _ in
+//                        guard let image = image as? UIImage else {
+//                            return
+//                        }
+//                        
+//                        DispatchQueue.main.async {
+//                            self.parent.images.append(image)
+//                        }
+//                    }
+//                }
             }
             
             picker.dismiss(animated: true)
