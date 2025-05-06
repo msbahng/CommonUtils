@@ -72,7 +72,6 @@ public struct BannerViewContainer: UIViewRepresentable {
         
         public func bannerView(_ bannerView: BannerView, didFailToReceiveAdWithError error: Error) {
             Logger.printLog("\(#function) called")
-            parent.isAdLoaded = false
         }
     }
 }
