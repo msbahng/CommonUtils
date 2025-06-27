@@ -28,4 +28,6 @@ extension View {
                 .unredacted()
         }
     }
+    
+    public func apply<V: View>(@ViewBuilder _ block: (Self) -> V) -> V { block(self) }
 }
